@@ -139,7 +139,8 @@ class EigenMatrixPrinter:
             return ('[%d,%d]' % (row, col), item)
 
     def to_string(self):
-        mat = np.zeros((self.rows, self.cols), dtype=np.float64)
+        mat = np.zeros((self.rows, self.cols + 1), dtype=np.float64)
+        mat[:, 0] = np.arange(self.rows)
         for row in range(self.rows):
             for col in range(self.cols):
                 if self.rowMajor:
